@@ -45,6 +45,7 @@ public class AjaxFileUploadServlet extends HttpServlet {
 		String path=getServletContext().getRealPath("/upload");
 		//크기
 		int maxSize=1024*1024*100;
+		//MultipartRequest 파일을 포함한 데이터를 다루기 위한 객체
 		MultipartRequest mr=new MultipartRequest(
 				request,path,maxSize,"UTF-8",new DefaultFileRenamePolicy());
 		//System.out.println(mr.getFilesystemName("upfile"));
@@ -66,9 +67,11 @@ public class AjaxFileUploadServlet extends HttpServlet {
 		//그래서
 		List<String> fileNames = new ArrayList();
 		//Enumeration이라고 해서 파일이름을 받을수 있게함 이더레이터와 비슷함
-		Enumeration<String> e=mr.getFileNames();
+		Enumeration<String> e=mr.getFileNames();//Enumeration은 스택과 같은 것, 한번 넣으면 뺄수 가 없음(back을 못해), 얘는 foreach문 처럼 돌리기 위해서 사용한것
+		//얘는 명시를 못하는 자료또는데이터들을 넣는 거라 for-each문을 사용할 수 가 없는것들에 주로 이용
 		while(e.hasMoreElements()) {
-			fileNames.add(mr.getFilesystemName(e.nextElement()));//이 리스트 안에 다 사진을 넣어줌
+			fileNames.add(mr.getFilesystemName(e.nextElement()));//몇개인지 갯수를 알지 못해도 다음객체를 넣어줄 것이 있으면 알아서 넣어줌(nextElement)
+			//그렇게 이 리스트 안에 다 사진을 넣어줌
 		}
 		System.out.println(fileNames);//배열로 넣어준 값들이 순서대로 출력됨
 	}
