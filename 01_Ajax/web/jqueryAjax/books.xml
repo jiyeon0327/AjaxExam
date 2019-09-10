@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books><!--root태그  -->
+	<book>
+		<subject>소설</subject>
+		<title>해질무렵</title>
+		<author>황석영</author>
+	</book>
+	<book>
+		<subject>소설</subject>
+		<title>마션</title>
+		<author>앤디위어</author>
+	</book>
+	<!--이스케이프문이 존재한다. ex)마<>션 같은 문자열을 쓰기 위해 필요함  -->
+	<!--이스케이문을 하면 뒤에 []태그나 특수기호를 써도 오류 안난다
+		이스케이프문
+		<![CDATA[해당하는 문구]]>
+	  -->
+	  <book>
+		<subject>프로그래밍</subject>
+		<title><![CDATA[<>JSP&Servlet<>]]></title>
+		<author>이태영</author>
+	</book>
+ 	<book>
+         <subject>소설</subject>
+         <title>어린왕자</title>
+         <author>생떽쥐베리</author>
+      </book>
+      <book>
+         <subject>소설</subject>
+         <title>당신</title>
+         <author>박범신</author>
+      </book>
+      <book>
+         <subject>프로그래밍</subject>
+         <title>Oracle</title>
+         <author>이순신</author>
+      </book>
+      <book>
+         <subject>프로그래밍</subject>
+         <title>자바</title>
+         <author>안중근</author>
+      </book>
+
+</books>
